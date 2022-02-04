@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  blogApp
+//  blog
 //
 //  Created by Wesley Brito Bernardes on 04/02/22.
 //

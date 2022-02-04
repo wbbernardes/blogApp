@@ -1,14 +1,14 @@
 //
-//  blogAppTests.swift
-//  blogAppTests
+//  blogTests.swift
+//  blogTests
 //
 //  Created by Wesley Brito Bernardes on 04/02/22.
 //
 
 import XCTest
-@testable import blogApp
+@testable import blog
 
-class blogAppTests: XCTestCase {
+class blogTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

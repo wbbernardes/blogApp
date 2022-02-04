@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "64BBCE8627ADB99900AA72E6"
-               BuildableName = "blogApp.app"
-               BlueprintName = "blogApp"
-               ReferencedContainer = "container:blogApp.xcodeproj">
+               BlueprintIdentifier = "64BBCEBC27ADBAC100AA72E6"
+               BuildableName = "blog.app"
+               BlueprintName = "blog"
+               ReferencedContainer = "container:blog.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "64BBCE9627ADB99C00AA72E6"
-               BuildableName = "blogAppTests.xctest"
-               BlueprintName = "blogAppTests"
-               ReferencedContainer = "container:blogApp.xcodeproj">
+               BlueprintIdentifier = "64BBCECC27ADBAC400AA72E6"
+               BuildableName = "blogTests.xctest"
+               BlueprintName = "blogTests"
+               ReferencedContainer = "container:blog.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -54,10 +54,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "64BBCE8627ADB99900AA72E6"
-            BuildableName = "blogApp.app"
-            BlueprintName = "blogApp"
-            ReferencedContainer = "container:blogApp.xcodeproj">
+            BlueprintIdentifier = "64BBCEBC27ADBAC100AA72E6"
+            BuildableName = "blog.app"
+            BlueprintName = "blog"
+            ReferencedContainer = "container:blog.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -71,10 +71,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "64BBCE8627ADB99900AA72E6"
-            BuildableName = "blogApp.app"
-            BlueprintName = "blogApp"
-            ReferencedContainer = "container:blogApp.xcodeproj">
+            BlueprintIdentifier = "64BBCEBC27ADBAC100AA72E6"
+            BuildableName = "blog.app"
+            BlueprintName = "blog"
+            ReferencedContainer = "container:blog.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
