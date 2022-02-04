@@ -12,6 +12,9 @@
 		64BBCEC527ADBAC400AA72E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64BBCEC427ADBAC400AA72E6 /* Assets.xcassets */; };
 		64BBCEC827ADBAC400AA72E6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64BBCEC727ADBAC400AA72E6 /* Preview Assets.xcassets */; };
 		64BBCED227ADBAC400AA72E6 /* blogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBCED127ADBAC400AA72E6 /* blogTests.swift */; };
+		64BBCEEE27ADBDB100AA72E6 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBCEED27ADBDB100AA72E6 /* Loading.swift */; };
+		64BBCEF127ADBE3100AA72E6 /* UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBCEF027ADBE3100AA72E6 /* UIKit.swift */; };
+		64BBCEF427ADBFB300AA72E6 /* VStackBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBCEF327ADBFB300AA72E6 /* VStackBase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +35,9 @@
 		64BBCEC727ADBAC400AA72E6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		64BBCECD27ADBAC400AA72E6 /* blogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = blogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		64BBCED127ADBAC400AA72E6 /* blogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blogTests.swift; sourceTree = "<group>"; };
+		64BBCEED27ADBDB100AA72E6 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
+		64BBCEF027ADBE3100AA72E6 /* UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.swift; sourceTree = "<group>"; };
+		64BBCEF327ADBFB300AA72E6 /* VStackBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackBase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,8 +79,9 @@
 		64BBCEBF27ADBAC100AA72E6 /* blog */ = {
 			isa = PBXGroup;
 			children = (
+				64BBCEEB27ADBD6B00AA72E6 /* Resource */,
+				64BBCEEA27ADBD5B00AA72E6 /* Source */,
 				64BBCEC027ADBAC100AA72E6 /* blogApp.swift */,
-				64BBCEC227ADBAC100AA72E6 /* ContentView.swift */,
 				64BBCEC427ADBAC400AA72E6 /* Assets.xcassets */,
 				64BBCEC627ADBAC400AA72E6 /* Preview Content */,
 			);
@@ -95,6 +102,48 @@
 				64BBCED127ADBAC400AA72E6 /* blogTests.swift */,
 			);
 			path = blogTests;
+			sourceTree = "<group>";
+		};
+		64BBCEEA27ADBD5B00AA72E6 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				64BBCEC227ADBAC100AA72E6 /* ContentView.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		64BBCEEB27ADBD6B00AA72E6 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				64BBCEF227ADBF9A00AA72E6 /* Modifiers */,
+				64BBCEEF27ADBE1900AA72E6 /* UIKit */,
+				64BBCEEC27ADBD8D00AA72E6 /* Components */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		64BBCEEC27ADBD8D00AA72E6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				64BBCEED27ADBDB100AA72E6 /* Loading.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		64BBCEEF27ADBE1900AA72E6 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				64BBCEF027ADBE3100AA72E6 /* UIKit.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		64BBCEF227ADBF9A00AA72E6 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				64BBCEF327ADBFB300AA72E6 /* VStackBase.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,7 +246,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64BBCEF127ADBE3100AA72E6 /* UIKit.swift in Sources */,
+				64BBCEF427ADBFB300AA72E6 /* VStackBase.swift in Sources */,
 				64BBCEC327ADBAC100AA72E6 /* ContentView.swift in Sources */,
+				64BBCEEE27ADBDB100AA72E6 /* Loading.swift in Sources */,
 				64BBCEC127ADBAC100AA72E6 /* blogApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
