@@ -20,7 +20,7 @@ public struct NetworkProvider {
     public var interceptor: RequestInterceptor?
     public var requestModifier: Session.RequestModifier?
 
-    init(url: URLConvertible,
+    public init(url: URLConvertible,
          method: HTTPMethod = .get,
          parameters: Parameters? = nil,
          encoding: ParameterEncoding = URLEncoding.default,

@@ -8,17 +8,18 @@
 import Combine
 import Foundation
 
-enum NetworkError: Error {
+public enum NetworkError: Error {
     case parseError
     case other(Error)
 }
 
 extension AnyPublisher where Output == Data, Failure == Error {
-    func decode<T: Decodable>(jsonDecoder: JSONDecoder = JSONDecoder()) -> AnyPublisher<T, Failure> {
+    public func decode<T: Decodable>(jsonDecoder: JSONDecoder = JSONDecoder()) -> AnyPublisher<T, Failure> {
         tryMap { data -> T in
             do {
                 return try jsonDecoder.decode(T.self, from: data)
             } catch {
+                debugPrint(NetworkError.parseError)
                 throw NetworkError.parseError
             }
         }.eraseToAnyPublisher()

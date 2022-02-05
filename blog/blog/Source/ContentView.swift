@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = NewsViewModel()
     var body: some View {
-        Text("Hello, world!T")
-            .padding()
+        NavigationView {
+            List(viewModel.postsList, id: \.self) { object in
+                Text(object.title)
+            }
+            .onAppear(perform: viewModel.getPosts)
+            .navigationBarTitle("Posts")
+            .listStyle(GroupedListStyle())
+        }
     }
 }
 
