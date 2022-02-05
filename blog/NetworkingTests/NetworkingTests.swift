@@ -14,11 +14,11 @@ class NetworkingTests: XCTestCase {
     func test() {
         let exp = expectation(description: "Parse success")
         var disposables = Set<AnyCancellable>()
-        
+
         getPosts().sink { _ in } receiveValue: { postList in
             let firstPost = postList.first
             let title = firstPost?.title != nil
-            
+
             XCTAssert(title)
             exp.fulfill()
         }.store(in: &disposables)
