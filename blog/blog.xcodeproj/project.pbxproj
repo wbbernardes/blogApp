@@ -29,6 +29,9 @@
 		64BBCF2C27AEF49C00AA72E6 /* NewsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBCF2B27AEF49C00AA72E6 /* NewsRouter.swift */; };
 		64BBCF2E27AEF62A00AA72E6 /* NewsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBCF2D27AEF62A00AA72E6 /* NewsProvider.swift */; };
 		64BBCF3227AEF7DD00AA72E6 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBCF3127AEF7DD00AA72E6 /* NewsViewModel.swift */; };
+		64BBCF3527AEFE4400AA72E6 /* MockAlamofireAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBCF3427AEFE4400AA72E6 /* MockAlamofireAdapter.swift */; };
+		64BBCF3827AEFF3A00AA72E6 /* posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 64BBCF3727AEFF3A00AA72E6 /* posts.json */; };
+		64BBCF3B27AEFFB100AA72E6 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBCF3A27AEFFB100AA72E6 /* TestUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +102,9 @@
 		64BBCF2B27AEF49C00AA72E6 /* NewsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRouter.swift; sourceTree = "<group>"; };
 		64BBCF2D27AEF62A00AA72E6 /* NewsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsProvider.swift; sourceTree = "<group>"; };
 		64BBCF3127AEF7DD00AA72E6 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		64BBCF3427AEFE4400AA72E6 /* MockAlamofireAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAlamofireAdapter.swift; sourceTree = "<group>"; };
+		64BBCF3727AEFF3A00AA72E6 /* posts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = posts.json; sourceTree = "<group>"; };
+		64BBCF3A27AEFFB100AA72E6 /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +252,9 @@
 			isa = PBXGroup;
 			children = (
 				64BBCF0A27AE1D7100AA72E6 /* NetworkingTests.swift */,
+				64BBCF3927AEFF8100AA72E6 /* NetworkingUtils */,
+				64BBCF3627AEFEFC00AA72E6 /* MockJson */,
+				64BBCF3327AEFE1200AA72E6 /* NetworkingMock */,
 			);
 			path = NetworkingTests;
 			sourceTree = "<group>";
@@ -290,6 +299,30 @@
 				64BBCF3127AEF7DD00AA72E6 /* NewsViewModel.swift */,
 			);
 			path = News;
+			sourceTree = "<group>";
+		};
+		64BBCF3327AEFE1200AA72E6 /* NetworkingMock */ = {
+			isa = PBXGroup;
+			children = (
+				64BBCF3427AEFE4400AA72E6 /* MockAlamofireAdapter.swift */,
+			);
+			path = NetworkingMock;
+			sourceTree = "<group>";
+		};
+		64BBCF3627AEFEFC00AA72E6 /* MockJson */ = {
+			isa = PBXGroup;
+			children = (
+				64BBCF3727AEFF3A00AA72E6 /* posts.json */,
+			);
+			path = MockJson;
+			sourceTree = "<group>";
+		};
+		64BBCF3927AEFF8100AA72E6 /* NetworkingUtils */ = {
+			isa = PBXGroup;
+			children = (
+				64BBCF3A27AEFFB100AA72E6 /* TestUtils.swift */,
+			);
+			path = NetworkingUtils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,6 +494,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64BBCF3827AEFF3A00AA72E6 /* posts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +541,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64BBCF3527AEFE4400AA72E6 /* MockAlamofireAdapter.swift in Sources */,
+				64BBCF3B27AEFFB100AA72E6 /* TestUtils.swift in Sources */,
 				64BBCF0B27AE1D7100AA72E6 /* NetworkingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

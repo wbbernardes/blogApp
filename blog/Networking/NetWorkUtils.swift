@@ -9,6 +9,7 @@ import Combine
 import Foundation
 
 public enum NetworkError: Error {
+    case invalidResponse
     case parseError
     case other(Error)
 }
