@@ -12,13 +12,13 @@ public protocol RequestInfoConvertible {
 }
 
 public struct NetworkProvider {
-    public var url: URLConvertible
-    public var method: HTTPMethod
-    public var parameters: Parameters?
-    public var encoding: ParameterEncoding
-    public var headers: HTTPHeaders?
-    public var interceptor: RequestInterceptor?
-    public var requestModifier: Session.RequestModifier?
+    var url: URLConvertible
+    var method: HTTPMethod
+    var parameters: Parameters?
+    var encoding: ParameterEncoding
+    var headers: HTTPHeaders?
+    var interceptor: RequestInterceptor?
+    var requestModifier: Session.RequestModifier?
 
     public init(url: URLConvertible,
          method: HTTPMethod = .get,

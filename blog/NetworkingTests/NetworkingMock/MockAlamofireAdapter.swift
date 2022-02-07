@@ -11,11 +11,11 @@ import Combine
 
 class MockAlamofireAdapter: AlamofireProvider {
     var response: (Data?, Error?) = (nil, NetworkError.invalidResponse)
-    
+
     init(response: (Data?, Error?)) {
         self.response = response
     }
-    
+
     func request(_ info: RequestInfoConvertible) -> AnyPublisher<Data, Error> {
         if let error = response.1 {
             return Fail(error: error)
@@ -28,6 +28,5 @@ class MockAlamofireAdapter: AlamofireProvider {
             return Fail(error: NetworkError.invalidResponse)
                 .eraseToAnyPublisher()
         }
-
     }
 }
