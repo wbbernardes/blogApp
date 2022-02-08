@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ContentView: View {
     @StateObject var viewModel = NewsViewModel()
+    @ObservedResults(News.self) var news
+    
     var body: some View {
         NavigationView {
-            List(viewModel.postsList, id: \.self) { object in
+            List(news, id: \.self) { object in
                 Text(object.title)
             }
-            .onAppear(perform: viewModel.getPosts)
+            .onAppear(perform: viewModel.checkFlow)
             .navigationBarTitle("Posts")
             .listStyle(GroupedListStyle())
         }

@@ -32,6 +32,7 @@
 		64BBCF3527AEFE4400AA72E6 /* MockAlamofireAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBCF3427AEFE4400AA72E6 /* MockAlamofireAdapter.swift */; };
 		64BBCF3827AEFF3A00AA72E6 /* posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 64BBCF3727AEFF3A00AA72E6 /* posts.json */; };
 		64BBCF3B27AEFFB100AA72E6 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBCF3A27AEFFB100AA72E6 /* TestUtils.swift */; };
+		64BBCF3F27B1BD9500AA72E6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 64BBCF3E27B1BD9500AA72E6 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64BBCF3F27B1BD9500AA72E6 /* RealmSwift in Frameworks */,
 				64BBCF0F27AE1D7100AA72E6 /* Networking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,6 +355,9 @@
 				64BBCF0E27AE1D7100AA72E6 /* PBXTargetDependency */,
 			);
 			name = blog;
+			packageProductDependencies = (
+				64BBCF3E27B1BD9500AA72E6 /* RealmSwift */,
+			);
 			productName = blog;
 			productReference = 64BBCEBD27ADBAC100AA72E6 /* blog.app */;
 			productType = "com.apple.product-type.application";
@@ -453,6 +458,7 @@
 			mainGroup = 64BBCEB427ADBAC100AA72E6;
 			packageReferences = (
 				64BBCF1827AEDD8C00AA72E6 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				64BBCF3D27B1BD9400AA72E6 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 64BBCEBE27ADBAC100AA72E6 /* Products */;
 			projectDirPath = "";
@@ -939,6 +945,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		64BBCF3D27B1BD9400AA72E6 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -946,6 +960,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 64BBCF1827AEDD8C00AA72E6 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		64BBCF3E27B1BD9500AA72E6 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64BBCF3D27B1BD9400AA72E6 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
