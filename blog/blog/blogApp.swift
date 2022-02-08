@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct blogApp: App {
+
+    init() {
+        UserDefaults.standard.register(defaults: [UserDefaultKeys.firstTimeAccess : true])
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()

@@ -17,7 +17,7 @@ struct ContentView: View {
             List(news, id: \.self) { object in
                 Text(object.title)
             }
-            .onAppear(perform: viewModel.checkFlow)
+            .onAppear(perform: viewModel.getPosts)
             .navigationBarTitle("Posts")
             .listStyle(GroupedListStyle())
         }
