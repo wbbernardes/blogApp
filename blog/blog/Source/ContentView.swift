@@ -12,30 +12,31 @@ struct ContentView: View {
 
     // MARK: - Properties
 
+    @State private var selection: Int = 0
     @StateObject private var envApp: EnvApp = EnvApp()
-    @StateObject var viewModel = NewsViewModel()
-    @ObservedResults(News.self) var news
-    @State var selectedItem: News?
 
     // MARK: Views
 
     var body: some View {
         ZStack {
-            NavigationLink(
-                destination: NewsDetailView(news: selectedItem ?? News()).environmentObject(envApp),
-                isActive: $envApp.router.firstView) { EmptyView() }
-            List {
-                ForEach(news, id: \.id) { object in
-                    Text(object.title)
-                        .onTapGesture {
-                            selectedItem = object
-                            envApp.router.firstView = true
-                        }
-                }
+            TabView(selection: $selection) {
+                NewsView()
+                    .environmentObject(envApp)
+                    .tabItem {
+                        Image(systemName: "house.fill")
+                        Text("News")
+                    }
+                    .tag(0)
+                
+                FavoriteView()
+                    .environmentObject(envApp)
+                    .tabItem {
+                        Image(systemName: "bookmark.circle.fill")
+                        Text("Favorite")
+                    }
+                    .tag(1)
             }
-            .onAppear(perform: viewModel.getPosts)
-            .navigationBarTitle("Posts")
-            .listStyle(GroupedListStyle())
+            
         }
     }
 }

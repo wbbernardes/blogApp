@@ -7,5 +7,6 @@
 import Foundation
 
 struct Router {
-    var firstView: Bool = false
+    var newsView: Bool = false
+    var favoriteView: Bool = false
 }

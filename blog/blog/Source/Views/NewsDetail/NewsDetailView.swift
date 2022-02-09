@@ -10,6 +10,7 @@ import RealmSwift
 
 struct NewsDetailView: View {
 
+    @EnvironmentObject private var envApp: EnvApp
     @StateObject var viewModel = NewsDetailViewModel()
     @State var news: News
 

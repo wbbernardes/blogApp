@@ -13,6 +13,7 @@ class NewsViewModel: ObservableObject {
 
     // MARK: - Properties
 
+    @Published public var newsList: [News] = []
     private var disposables = Set<AnyCancellable>()
     private var service: NewsProvider = NewsService()
     private let realm = try? Realm()
@@ -26,6 +27,14 @@ class NewsViewModel: ObservableObject {
                     self?.populateDB(postsList: object)
                 })
                 .store(in: &disposables)
+        }
+    }
+
+    public func getFavorites() {
+        if let news = realm?.objects(News.self).filter("isFavorite == true") {
+            newsList = news.map {
+                return $0
+            }
         }
     }
 
