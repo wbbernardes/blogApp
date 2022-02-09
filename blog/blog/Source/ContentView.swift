@@ -9,13 +9,29 @@ import SwiftUI
 import RealmSwift
 
 struct ContentView: View {
+
+    // MARK: - Properties
+
+    @StateObject private var envApp: EnvApp = EnvApp()
     @StateObject var viewModel = NewsViewModel()
     @ObservedResults(News.self) var news
-    
+    @State var selectedItem: News?
+
+    // MARK: Views
+
     var body: some View {
-        NavigationView {
-            List(news, id: \.self) { object in
-                Text(object.title)
+        ZStack {
+            NavigationLink(
+                destination: NewsDetailView(news: selectedItem ?? News()).environmentObject(envApp),
+                isActive: $envApp.router.firstView) { EmptyView() }
+            List {
+                ForEach(news, id: \.id) { object in
+                    Text(object.title)
+                        .onTapGesture {
+                            selectedItem = object
+                            envApp.router.firstView = true
+                        }
+                }
             }
             .onAppear(perform: viewModel.getPosts)
             .navigationBarTitle("Posts")

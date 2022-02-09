@@ -11,9 +11,13 @@ import RealmSwift
 
 class NewsViewModel: ObservableObject {
 
+    // MARK: - Properties
+
     private var disposables = Set<AnyCancellable>()
     private var service: NewsProvider = NewsService()
     private let realm = try? Realm()
+
+    // MARK: - Public Methods
 
     public func getPosts() {
         if UserDefaults.standard.bool(forKey: UserDefaultKeys.firstTimeAccess) {
@@ -24,6 +28,8 @@ class NewsViewModel: ObservableObject {
                 .store(in: &disposables)
         }
     }
+
+    // MARK: - Private Methods
 
     private func populateDB(postsList: [News]) {
         if postsList.count > 0,

@@ -12,11 +12,17 @@ struct blogApp: App {
 
     init() {
         UserDefaults.standard.register(defaults: [UserDefaultKeys.firstTimeAccess : true])
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UITableView.appearance().backgroundColor = .clear
+        UITableViewCell.appearance().selectionStyle = .none
     }
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ContentView()
+            }.navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }
