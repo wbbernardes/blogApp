@@ -40,7 +40,8 @@ struct NewsView: View {
                 viewModel.getPosts()
             })
             .navigationBarTitle(envApp.title.rawValue)
-            .listStyle(GroupedListStyle())
+            .listStyle(.plain)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

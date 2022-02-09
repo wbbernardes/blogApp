@@ -36,7 +36,8 @@ struct FavoriteView: View {
                 viewModel.getFavorites()
             })
             .navigationBarTitle(envApp.title.rawValue)
-            .listStyle(GroupedListStyle())
+            .listStyle(.plain)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
