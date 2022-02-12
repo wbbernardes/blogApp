@@ -26,22 +26,21 @@ struct NewsView: View {
             NavigationLink(
                 destination: NewsDetailView(news: selectedItem ?? News()).environmentObject(envApp),
                 isActive: $envApp.router.newsView) { EmptyView() }
-            List {
-                ForEach(news, id: \.id) { object in
-                    Text(object.title)
-                        .onTapGesture {
-                            selectedItem = object
-                            envApp.router.newsView = true
-                        }
+            ScrollView(.vertical) {
+                VStack {
+                    ForEach(news, id: \.id) { object in
+                        CardView(cardObject: object)
+                            .onTapGesture {
+                                selectedItem = object
+                                envApp.router.newsView = true
+                            }
+                    }
                 }
+                .padding(.horizontal, 20)
             }
             .onAppear(perform: {
-                envApp.title = .news
                 viewModel.getPosts()
             })
-            .navigationBarTitle(envApp.title.rawValue)
-            .listStyle(.plain)
-            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
@@ -49,5 +48,6 @@ struct NewsView: View {
 struct NewsView_Previews: PreviewProvider {
     static var previews: some View {
         NewsView()
+            .environmentObject(EnvApp())
     }
 }

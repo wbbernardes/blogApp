@@ -10,10 +10,4 @@ import SwiftUI
 class EnvApp: ObservableObject {
     @Published var colorScheme: ColorScheme = ColorScheme.light
     @Published var router: Router = Router()
-    @Published var title: navigationTitle = .news
-}
-
-enum navigationTitle: String {
-    case news = "News"
-    case favorites = "Favorites"
 }

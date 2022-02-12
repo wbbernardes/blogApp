@@ -32,12 +32,8 @@ struct FavoriteView: View {
                 }
             }
             .onAppear(perform: {
-                envApp.title = .favorites
                 viewModel.getFavorites()
             })
-            .navigationBarTitle(envApp.title.rawValue)
-            .listStyle(.plain)
-            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

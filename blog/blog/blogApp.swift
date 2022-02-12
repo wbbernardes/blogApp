@@ -12,7 +12,6 @@ struct blogApp: App {
 
     init() {
         UserDefaults.standard.register(defaults: [UserDefaultKeys.firstTimeAccess : true])
-        UITableViewCell.appearance().selectionStyle = .none
     }
 
     var body: some Scene {

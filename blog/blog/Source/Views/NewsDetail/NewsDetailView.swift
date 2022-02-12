@@ -10,7 +10,7 @@ import RealmSwift
 
 struct NewsDetailView: View {
 
-    @EnvironmentObject private var envApp: EnvApp
+    @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel = NewsDetailViewModel()
     @State var news: News
 
@@ -31,6 +31,14 @@ struct NewsDetailView: View {
         }
         .VStackBase()
         .padding(.horizontal, 20)
+        .navigationBarItems(
+            leading:
+                HeaderButton(icon: "arrow.left") {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+        )
+        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
