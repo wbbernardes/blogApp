@@ -15,9 +15,9 @@ struct NewsView: View {
     // MARK: - Properties
 
     @EnvironmentObject private var envApp: EnvApp
-    @StateObject var viewModel = NewsViewModel()
-    @ObservedResults(News.self) var news
-    @State var selectedItem: News?
+    @StateObject private var viewModel = NewsViewModel()
+    @ObservedResults(News.self) private var news
+    @State private var selectedItem: News?
 
     // MARK: Views
 

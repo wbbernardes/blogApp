@@ -10,10 +10,14 @@ import RealmSwift
 
 struct NewsDetailView: View {
 
+    // MARK: - Properties
+
     @EnvironmentObject private var envApp: EnvApp
-    @StateObject var viewModel = NewsDetailViewModel()
+    @StateObject private var viewModel = NewsDetailViewModel()
     @State var news: News
     @State var fromNews: Bool
+
+    // MARK: Views
 
     var body: some View {
         ZStack {
@@ -54,7 +58,7 @@ struct NewsDetailView: View {
         }
     }
 
-    var backgroundImage: some View {
+    private var backgroundImage: some View {
         GeometryReader { geo in
             Image(UIKit.Image.background)
                 .resizable()
@@ -63,6 +67,8 @@ struct NewsDetailView: View {
             
         }.edgesIgnoringSafeArea(.vertical)
     }
+
+    // MARK: Methods
 
     private func popView() {
         envApp.colorScheme = .light
