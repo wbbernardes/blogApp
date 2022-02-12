@@ -20,16 +20,19 @@ struct FavoriteView: View {
     var body: some View {
         ZStack {
             NavigationLink(
-                destination: NewsDetailView(news: selectedItem ?? News()).environmentObject(envApp),
+                destination: NewsDetailView(news: selectedItem ?? News(), fromNews: false).environmentObject(envApp),
                 isActive: $envApp.router.favoriteView) { EmptyView() }
-            List {
-                ForEach(viewModel.newsList, id: \.self) { object in
-                    Text(object.title)
-                        .onTapGesture {
-                            selectedItem = object
-                            envApp.router.favoriteView = true
-                        }
+            ScrollView(.vertical) {
+                VStack {
+                    ForEach(viewModel.newsList, id: \.id) { object in
+                        CardView(cardObject: object)
+                            .onTapGesture {
+                                selectedItem = object
+                                envApp.router.favoriteView = true
+                            }
+                    }
                 }
+                .padding(.horizontal, 20)
             }
             .onAppear(perform: {
                 viewModel.getFavorites()

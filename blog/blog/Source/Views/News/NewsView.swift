@@ -24,7 +24,7 @@ struct NewsView: View {
     var body: some View {
         ZStack {
             NavigationLink(
-                destination: NewsDetailView(news: selectedItem ?? News()).environmentObject(envApp),
+                destination: NewsDetailView(news: selectedItem ?? News(), fromNews: true).environmentObject(envApp),
                 isActive: $envApp.router.newsView) { EmptyView() }
             ScrollView(.vertical) {
                 VStack {

@@ -19,21 +19,9 @@ class NewsDetailViewModel: ObservableObject {
     // MARK: - Public Methods
 
     public func saveAsFavorite(newsId: Int) {
-        let test = realm?.objects(News.self).filter("id == %@", newsId).first
+        let object = realm?.objects(News.self).filter("id == %@", newsId).first
         try? realm?.write({
-            test?.isFavorite = !(test?.isFavorite ?? false)
+            object?.isFavorite = !(object?.isFavorite ?? false)
         })
-    }
-
-    // MARK: - Public Methods
-
-    private func populateDB(postsList: [News]) {
-        if postsList.count > 0,
-           let realm = realm {
-            realm.beginWrite()
-            realm.add(postsList)
-            try? realm.commitWrite()
-            UserDefaults.standard.set(false, forKey: UserDefaultKeys.firstTimeAccess)
-        }
     }
 }

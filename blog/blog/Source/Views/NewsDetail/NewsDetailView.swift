@@ -10,9 +10,10 @@ import RealmSwift
 
 struct NewsDetailView: View {
 
-    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject private var envApp: EnvApp
     @StateObject var viewModel = NewsDetailViewModel()
     @State var news: News
+    @State var fromNews: Bool
 
     var body: some View {
         VStack(alignment: .leading,spacing: 16) {
@@ -24,9 +25,6 @@ struct NewsDetailView: View {
             Text(news.body)
                 .foregroundColor(.black)
                 .font(.system(size: 16))
-            Button("Temporary button") {
-                viewModel.saveAsFavorite(newsId: news.id)
-            }
             Spacer()
         }
         .VStackBase()
@@ -34,16 +32,29 @@ struct NewsDetailView: View {
         .navigationBarItems(
             leading:
                 HeaderButton(icon: "arrow.left") {
-                    self.presentationMode.wrappedValue.dismiss()
+                    popView()
+                },
+            trailing:
+                HeaderButton(icon: news.isFavorite ? "heart.fill" : "heart") {
+                    viewModel.saveAsFavorite(newsId: news.id)
+                    return popView()
                 }
         )
         .navigationBarTitle("", displayMode: .inline)
         .navigationBarBackButtonHidden(true)
     }
+
+    private func popView() {
+        if fromNews {
+            return envApp.router.newsView = false
+        } else {
+            return envApp.router.favoriteView = false
+        }
+    }
 }
 
 struct NewsDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        NewsDetailView(news: News())
+        NewsDetailView(news: News(), fromNews: false)
     }
 }

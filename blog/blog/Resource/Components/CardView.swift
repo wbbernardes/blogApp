@@ -19,6 +19,12 @@ struct CardView: View {
             }.padding(.leading, 20)
             .padding(.vertical, 10)
             Spacer()
+            Image(systemName: cardObject.isFavorite ? "heart.fill" : "heart")
+                .resizable()
+                .frame(width: 24, height: 20)
+                .foregroundColor(.white)
+                .padding(.trailing, 16)
+            
         }
         .frame(maxWidth: .infinity, alignment: .center)
         .background(UIKit.Colors.cardBackground)
