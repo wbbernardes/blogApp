@@ -18,26 +18,23 @@ struct ContentView: View {
     // MARK: Views
 
     var body: some View {
-        ZStack {
-            TabView(selection: $selection) {
-                NewsView()
-                    .environmentObject(envApp)
-                    .tabItem {
-                        Image(systemName: "house.fill")
-                        Text("News")
-                    }
-                    .tag(0)
-                
-                FavoriteView()
-                    .environmentObject(envApp)
-                    .tabItem {
-                        Image(systemName: "bookmark.circle.fill")
-                        Text("Favorite")
-                    }
-                    .tag(1)
-            }
+        TabView(selection: $selection) {
+            NewsView()
+                .environmentObject(envApp)
+                .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("News")
+                }
+                .tag(0)
             
-        }
+            FavoriteView()
+                .environmentObject(envApp)
+                .tabItem {
+                    Image(systemName: "bookmark.circle.fill")
+                    Text("Favorite")
+                }
+                .tag(1)
+        }.accentColor(.white)
     }
 }
 

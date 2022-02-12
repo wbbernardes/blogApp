@@ -8,6 +8,6 @@
 import SwiftUI
 
 class EnvApp: ObservableObject {
-    @Published var colorScheme: ColorScheme = ColorScheme.light
+    @Published var colorScheme: ColorScheme = .light
     @Published var router: Router = Router()
 }

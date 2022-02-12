@@ -22,26 +22,39 @@ struct NewsView: View {
     // MARK: Views
 
     var body: some View {
-        ZStack {
-            NavigationLink(
-                destination: NewsDetailView(news: selectedItem ?? News(), fromNews: true).environmentObject(envApp),
-                isActive: $envApp.router.newsView) { EmptyView() }
-            ScrollView(.vertical) {
-                VStack {
-                    ForEach(news, id: \.id) { object in
-                        CardView(cardObject: object)
-                            .onTapGesture {
-                                selectedItem = object
-                                envApp.router.newsView = true
-                            }
+        NavigationView {
+            ZStack {
+                NavigationLink(
+                    destination: NewsDetailView(news: selectedItem ?? News(), fromNews: true).environmentObject(envApp),
+                    isActive: $envApp.router.newsView) { EmptyView() }
+                backgroundImage
+                ScrollView(.vertical) {
+                    VStack {
+                        ForEach(news, id: \.id) { object in
+                            CardView(cardObject: object)
+                                .onTapGesture {
+                                    selectedItem = object
+                                    envApp.router.newsView = true
+                                }
+                        }
                     }
+                    .padding(.horizontal, 20)
                 }
-                .padding(.horizontal, 20)
-            }
-            .onAppear(perform: {
-                viewModel.getPosts()
-            })
+                .onAppear(perform: {
+                    envApp.colorScheme = .light
+                    viewModel.getPosts()
+                })
+            }.preferredColorScheme(envApp.colorScheme)
         }
+    }
+
+    private var backgroundImage: some View {
+        GeometryReader { geo in
+            Image(UIKit.Image.newsBackground)
+                .resizable()
+                .frame(width: geo.size.width, height: geo.size.height)
+                .aspectRatio(contentMode: .fit)
+        }.edgesIgnoringSafeArea(.vertical)
     }
 }
 

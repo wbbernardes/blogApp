@@ -9,16 +9,17 @@ import SwiftUI
 
 struct UIKit {
     struct Colors {
-        /// Primary Color hex: #6789FF example
-        static var primary: Color { return Color("Primary") }
-
         /// CardBackground Color hex: #202426 example
         static var cardBackground: Color { return Color("CardBackground") }
+
+        /// CardBackground Color hex: #1C1C27 example
+        static var gray6: Color { return Color("gray6") }
     }
 
     struct Image {
-        /// sample Image
-        static var chemist: String { return "chemist" }
-        
+        /// newsBackground Image
+        static var newsBackground: String { return "newsBackground" }
+        /// background detail Image
+        static var background: String { return "background" }
     }
 }

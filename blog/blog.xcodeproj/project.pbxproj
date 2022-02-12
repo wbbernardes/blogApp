@@ -41,6 +41,7 @@
 		64E0ABF227B73397009E582D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E0ABF127B73397009E582D /* CardView.swift */; };
 		64E0ABF427B73C10009E582D /* CardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E0ABF327B73C10009E582D /* CardModifier.swift */; };
 		64E0ABF627B73ECB009E582D /* HeaderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E0ABF527B73ECB009E582D /* HeaderButton.swift */; };
+		64E0ABF827B83E75009E582D /* VStackDetailModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E0ABF727B83E75009E582D /* VStackDetailModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 		64E0ABF127B73397009E582D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		64E0ABF327B73C10009E582D /* CardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModifier.swift; sourceTree = "<group>"; };
 		64E0ABF527B73ECB009E582D /* HeaderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderButton.swift; sourceTree = "<group>"; };
+		64E0ABF727B83E75009E582D /* VStackDetailModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackDetailModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +258,7 @@
 			children = (
 				64BBCEF327ADBFB300AA72E6 /* VStackBase.swift */,
 				64E0ABF327B73C10009E582D /* CardModifier.swift */,
+				64E0ABF727B83E75009E582D /* VStackDetailModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				64E0ABF427B73C10009E582D /* CardModifier.swift in Sources */,
 				64BBCF3227AEF7DD00AA72E6 /* NewsViewModel.swift in Sources */,
 				64BBCEEE27ADBDB100AA72E6 /* Loading.swift in Sources */,
+				64E0ABF827B83E75009E582D /* VStackDetailModifier.swift in Sources */,
 				64BBCF4227B2BEA600AA72E6 /* UserDefaultKeys.swift in Sources */,
 				64BBCF2327AEE52B00AA72E6 /* Router.swift in Sources */,
 				64BBCF2727AEE56A00AA72E6 /* EnvApp.swift in Sources */,

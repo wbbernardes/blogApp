@@ -19,7 +19,7 @@ struct CardView: View {
             }.padding(.leading, 20)
             .padding(.vertical, 10)
             Spacer()
-            Image(systemName: cardObject.isFavorite ? "heart.fill" : "heart")
+            Image(systemName: cardObject.isFavorite ? "star.fill" : "star")
                 .resizable()
                 .frame(width: 24, height: 20)
                 .foregroundColor(.white)

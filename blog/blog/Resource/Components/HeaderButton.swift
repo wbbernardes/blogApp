@@ -18,7 +18,7 @@ struct HeaderButton: View {
             Image(systemName: icon)
                 .resizable()
                 .frame(width: 24, height: 20)
-                .foregroundColor(.black)
+                .foregroundColor(.white)
         }
     }
 }

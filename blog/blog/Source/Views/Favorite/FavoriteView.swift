@@ -18,26 +18,39 @@ struct FavoriteView: View {
     // MARK: Views
 
     var body: some View {
-        ZStack {
-            NavigationLink(
-                destination: NewsDetailView(news: selectedItem ?? News(), fromNews: false).environmentObject(envApp),
-                isActive: $envApp.router.favoriteView) { EmptyView() }
-            ScrollView(.vertical) {
-                VStack {
-                    ForEach(viewModel.newsList, id: \.id) { object in
-                        CardView(cardObject: object)
-                            .onTapGesture {
-                                selectedItem = object
-                                envApp.router.favoriteView = true
-                            }
+        NavigationView {
+            ZStack {
+                NavigationLink(
+                    destination: NewsDetailView(news: selectedItem ?? News(), fromNews: false).environmentObject(envApp),
+                    isActive: $envApp.router.favoriteView) { EmptyView() }
+                backgroundImage
+                ScrollView(.vertical) {
+                    VStack {
+                        ForEach(viewModel.newsList, id: \.id) { object in
+                            CardView(cardObject: object)
+                                .onTapGesture {
+                                    selectedItem = object
+                                    envApp.router.favoriteView = true
+                                }
+                        }
                     }
+                    .padding(.horizontal, 20)
                 }
-                .padding(.horizontal, 20)
-            }
-            .onAppear(perform: {
-                viewModel.getFavorites()
-            })
+                .onAppear(perform: {
+                    envApp.colorScheme = .light
+                    viewModel.getFavorites()
+                })
+            }.preferredColorScheme(envApp.colorScheme)
         }
+    }
+
+    private var backgroundImage: some View {
+        GeometryReader { geo in
+            Image(UIKit.Image.newsBackground)
+                .resizable()
+                .frame(width: geo.size.width, height: geo.size.height)
+                .aspectRatio(contentMode: .fit)
+        }.edgesIgnoringSafeArea(.vertical)
     }
 }
 
