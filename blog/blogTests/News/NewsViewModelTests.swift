@@ -47,8 +47,9 @@ class NewsViewModelTests: XCTestCase {
             }
             XCTAssertEqual(self.viewModel.getFavoritesCallCount, 1)
             expectation.fulfill()
+            return []
         }
-        viewModel.getFavorites()
+        _ = viewModel.getFavorites()
         wait(for: [expectation], timeout: 1)
         XCTAssertTrue(viewModel.newsList.count > 0)
     }

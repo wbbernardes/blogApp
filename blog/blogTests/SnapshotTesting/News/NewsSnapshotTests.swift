@@ -17,8 +17,7 @@ class NewsSnapshotTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        let newsView = NewsView()
-        newsView.viewModel.newsList = newsList
+        let newsView = NewsView(newsList: newsList)
         viewController = UIHostingController(rootView: newsView.environmentObject(EnvApp()))
         isRecording = false
     }

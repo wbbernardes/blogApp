@@ -27,7 +27,7 @@ struct FavoriteView: View {
                 backgroundImage
                 ScrollView(.vertical) {
                     VStack {
-                        ForEach(viewModel.newsList, id: \.id) { object in
+                        ForEach(newsList, id: \.id) { object in
                             CardView(cardObject: object)
                                 .onTapGesture {
                                     selectedItem = object
@@ -39,7 +39,9 @@ struct FavoriteView: View {
                 }
                 .onAppear(perform: {
                     envApp.colorScheme = .light
-                    viewModel.getFavorites()
+                    if newsList.count == 0 {
+                        newsList = viewModel.getFavorites()
+                    }
                 })
             }.preferredColorScheme(envApp.colorScheme)
         }

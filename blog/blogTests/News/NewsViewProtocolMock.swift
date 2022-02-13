@@ -28,12 +28,12 @@ public class NewsViewProtocolMock: NewsViewProtocol {
     }
 
     public private(set) var getFavoritesCallCount = 0
-    public var getFavoritesHandler: (() -> ())?
-    public func getFavorites()  {
+    public var getFavoritesHandler: (() -> ([News]))?
+    public func getFavorites() -> [News]  {
         getFavoritesCallCount += 1
         if let getFavoritesHandler = getFavoritesHandler {
-            getFavoritesHandler()
+            return getFavoritesHandler()
         }
-        
+        return []
     }
 }

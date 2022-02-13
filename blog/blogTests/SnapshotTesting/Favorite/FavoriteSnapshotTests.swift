@@ -17,8 +17,8 @@ class FavoriteSnapshotTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        let newsDetail = FavoriteView(newsList: newsList)
-        viewController = UIHostingController(rootView: newsView.environmentObject(EnvApp()))
+        let favoriteView = FavoriteView(newsList: newsList)
+        viewController = UIHostingController(rootView: favoriteView.environmentObject(EnvApp()))
         isRecording = false
     }
 

@@ -22,7 +22,7 @@ class NewsDetailSnapshotTests: XCTestCase {
             self.news = news
         }
         let newsDetail = NewsDetailView(news: news, fromNews: true)
-        viewController = UIHostingController(rootView: newsView.environmentObject(EnvApp()))
+        viewController = UIHostingController(rootView: newsDetail.environmentObject(EnvApp()))
         isRecording = false
     }
 

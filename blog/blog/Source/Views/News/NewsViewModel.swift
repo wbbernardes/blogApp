@@ -15,7 +15,7 @@ public protocol NewsViewProtocol: ObservableObject {
     var newsList: [News] { get set }
 
     func getPosts()
-    func getFavorites()
+    func getFavorites() -> [News]
 }
 
 public class NewsViewModel: NewsViewProtocol {
@@ -37,6 +37,7 @@ public class NewsViewModel: NewsViewProtocol {
                 .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { _ in }, receiveValue: { [weak self] object in
                     self?.isLoading = false
+                    self?.newsList = object
                     self?.populateDB(postsList: object)
                 })
                 .store(in: &disposables)
@@ -45,13 +46,25 @@ public class NewsViewModel: NewsViewProtocol {
         }
     }
 
-    public func getFavorites() {
+    public func getFavorites() -> [News] {
         if let news = realm?.objects(News.self).filter("isFavorite == true") {
             newsList = news.map {
                 return $0
             }
+            return newsList
         }
+        return []
     }
+
+//    public func fillNews() -> [News] {
+//        if let news = realm?.objects(News.self) {
+//            newsList = news.map {
+//                return $0
+//            }
+//            return newsList
+//        }
+//        return []
+//    }
 
     // MARK: - Private Methods
 
