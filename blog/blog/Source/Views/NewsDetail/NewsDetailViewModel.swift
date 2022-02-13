@@ -9,7 +9,11 @@ import Foundation
 import Combine
 import RealmSwift
 
-class NewsDetailViewModel: ObservableObject {
+public protocol NewsDetailProtocol: ObservableObject {
+    func saveAsFavorite(newsId: Int)
+}
+
+public class NewsDetailViewModel: NewsDetailProtocol {
 
     // MARK: - Properties
 

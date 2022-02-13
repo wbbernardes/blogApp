@@ -8,12 +8,22 @@
 import Foundation
 import Combine
 import RealmSwift
+import UIKit
 
-class NewsViewModel: ObservableObject {
+public protocol NewsViewProtocol: ObservableObject {
+
+    var newsList: [News] { get set }
+
+    func getPosts()
+    func getFavorites()
+}
+
+public class NewsViewModel: NewsViewProtocol {
 
     // MARK: - Properties
 
     @Published public var newsList: [News] = []
+    @Published var isLoading: Bool = false
     private var disposables = Set<AnyCancellable>()
     private var service: NewsProvider = NewsService()
     private let realm = try? Realm()
@@ -21,12 +31,17 @@ class NewsViewModel: ObservableObject {
     // MARK: - Public Methods
 
     public func getPosts() {
+        isLoading = true
         if UserDefaults.standard.bool(forKey: UserDefaultKeys.firstTimeAccess) {
             service.getPosts()
+                .receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { _ in }, receiveValue: { [weak self] object in
+                    self?.isLoading = false
                     self?.populateDB(postsList: object)
                 })
                 .store(in: &disposables)
+        } else {
+            isLoading = false
         }
     }
 
@@ -44,7 +59,7 @@ class NewsViewModel: ObservableObject {
         if postsList.count > 0,
            let realm = realm {
             realm.beginWrite()
-            realm.add(postsList)
+            realm.add(postsList, update: .modified)
             try? realm.commitWrite()
             UserDefaults.standard.set(false, forKey: UserDefaultKeys.firstTimeAccess)
         }

@@ -44,6 +44,9 @@ struct NewsView: View {
                     envApp.colorScheme = .light
                     viewModel.getPosts()
                 })
+                if viewModel.isLoading {
+                    Loading(isLoading: $viewModel.isLoading)
+                }
             }.preferredColorScheme(envApp.colorScheme)
         }
     }

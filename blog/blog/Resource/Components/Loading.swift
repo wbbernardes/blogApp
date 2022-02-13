@@ -43,7 +43,7 @@ struct CenteredLoadingView: View {
             if displayLoading && context.coordinator.controller == nil {
                 context.coordinator.controller = UIHostingController(rootView: viewLoading)
                 let view = context.coordinator.controller!.view
-                view?.backgroundColor = UIColor.blue.withAlphaComponent(0.5)
+                view?.backgroundColor = UIColor.white.withAlphaComponent(0.5)
                 view?.translatesAutoresizingMaskIntoConstraints = false
                 holder.addSubview(view!)
                 holder.isUserInteractionEnabled = false

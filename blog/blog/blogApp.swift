@@ -13,7 +13,6 @@ struct blogApp: App {
     init() {
         UserDefaults.standard.register(defaults: [UserDefaultKeys.firstTimeAccess : true])
         UITabBar.appearance().barTintColor = UIColor(UIKit.Colors.gray6)
-        
     }
 
     var body: some Scene {
