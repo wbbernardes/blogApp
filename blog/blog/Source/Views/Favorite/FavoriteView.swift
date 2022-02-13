@@ -14,6 +14,7 @@ struct FavoriteView: View {
     @EnvironmentObject private var envApp: EnvApp
     @StateObject private var viewModel = NewsViewModel()
     @State private var selectedItem: News?
+    @State var newsList: [News] = []
 
     // MARK: Views
 
