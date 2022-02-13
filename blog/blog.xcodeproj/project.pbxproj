@@ -11,7 +11,6 @@
 		64BBCEC327ADBAC100AA72E6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBCEC227ADBAC100AA72E6 /* ContentView.swift */; };
 		64BBCEC527ADBAC400AA72E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64BBCEC427ADBAC400AA72E6 /* Assets.xcassets */; };
 		64BBCEC827ADBAC400AA72E6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64BBCEC727ADBAC400AA72E6 /* Preview Assets.xcassets */; };
-		64BBCED227ADBAC400AA72E6 /* blogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBCED127ADBAC400AA72E6 /* blogTests.swift */; };
 		64BBCEEE27ADBDB100AA72E6 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBCEED27ADBDB100AA72E6 /* Loading.swift */; };
 		64BBCEF127ADBE3100AA72E6 /* UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBCEF027ADBE3100AA72E6 /* UIKit.swift */; };
 		64BBCEF427ADBFB300AA72E6 /* VStackBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBCEF327ADBFB300AA72E6 /* VStackBase.swift */; };
@@ -48,6 +47,8 @@
 		64E0AC0327B931FA009E582D /* posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 64BBCF3727AEFF3A00AA72E6 /* posts.json */; };
 		64E0AC0627B9424E009E582D /* NewsDetailProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E0AC0527B9424E009E582D /* NewsDetailProtocolMock.swift */; };
 		64E0AC0827B943BC009E582D /* NewsDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E0AC0727B943BC009E582D /* NewsDetailViewModelTests.swift */; };
+		64E0AC1127B98A61009E582D /* NewsSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E0AC1027B98A61009E582D /* NewsSnapshotTests.swift */; };
+		64E0AC1427B98F4A009E582D /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 64E0AC1327B98F4A009E582D /* SnapshotTesting */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,7 +103,6 @@
 		64BBCEC427ADBAC400AA72E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64BBCEC727ADBAC400AA72E6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		64BBCECD27ADBAC400AA72E6 /* blogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = blogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		64BBCED127ADBAC400AA72E6 /* blogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blogTests.swift; sourceTree = "<group>"; };
 		64BBCEED27ADBDB100AA72E6 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		64BBCEF027ADBE3100AA72E6 /* UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.swift; sourceTree = "<group>"; };
 		64BBCEF327ADBFB300AA72E6 /* VStackBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackBase.swift; sourceTree = "<group>"; };
@@ -135,6 +135,7 @@
 		64E0AC0027B931BF009E582D /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 		64E0AC0527B9424E009E582D /* NewsDetailProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailProtocolMock.swift; sourceTree = "<group>"; };
 		64E0AC0727B943BC009E582D /* NewsDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewModelTests.swift; sourceTree = "<group>"; };
+		64E0AC1027B98A61009E582D /* NewsSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSnapshotTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64E0AC1427B98F4A009E582D /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,7 +220,7 @@
 		64BBCED027ADBAC400AA72E6 /* blogTests */ = {
 			isa = PBXGroup;
 			children = (
-				64BBCED127ADBAC400AA72E6 /* blogTests.swift */,
+				64E0AC0C27B98A04009E582D /* SnapshotTesting */,
 				64E0ABF927B92AD5009E582D /* News */,
 				64E0AC0427B9420A009E582D /* NewsDetail */,
 				64E0ABFF27B931B1009E582D /* Utils */,
@@ -418,6 +420,38 @@
 			path = NewsDetail;
 			sourceTree = "<group>";
 		};
+		64E0AC0C27B98A04009E582D /* SnapshotTesting */ = {
+			isa = PBXGroup;
+			children = (
+				64E0AC0D27B98A13009E582D /* News */,
+				64E0AC0E27B98A1A009E582D /* NewsDetail */,
+				64E0AC0F27B98A21009E582D /* Favorite */,
+			);
+			path = SnapshotTesting;
+			sourceTree = "<group>";
+		};
+		64E0AC0D27B98A13009E582D /* News */ = {
+			isa = PBXGroup;
+			children = (
+				64E0AC1027B98A61009E582D /* NewsSnapshotTests.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		64E0AC0E27B98A1A009E582D /* NewsDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NewsDetail;
+			sourceTree = "<group>";
+		};
+		64E0AC0F27B98A21009E582D /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -467,6 +501,9 @@
 				64BBCECF27ADBAC400AA72E6 /* PBXTargetDependency */,
 			);
 			name = blogTests;
+			packageProductDependencies = (
+				64E0AC1327B98F4A009E582D /* SnapshotTesting */,
+			);
 			productName = blogTests;
 			productReference = 64BBCECD27ADBAC400AA72E6 /* blogTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -550,6 +587,7 @@
 			packageReferences = (
 				64BBCF1827AEDD8C00AA72E6 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				64BBCF3D27B1BD9400AA72E6 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				64E0AC1227B98F4A009E582D /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			productRefGroup = 64BBCEBE27ADBAC100AA72E6 /* Products */;
 			projectDirPath = "";
@@ -630,11 +668,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64BBCED227ADBAC400AA72E6 /* blogTests.swift in Sources */,
 				64E0ABFB27B92B03009E582D /* NewsViewModelTests.swift in Sources */,
 				64E0ABFD27B92B45009E582D /* NewsViewProtocolMock.swift in Sources */,
 				64E0AC0627B9424E009E582D /* NewsDetailProtocolMock.swift in Sources */,
 				64E0AC0827B943BC009E582D /* NewsDetailViewModelTests.swift in Sources */,
+				64E0AC1127B98A61009E582D /* NewsSnapshotTests.swift in Sources */,
 				64E0AC0127B931BF009E582D /* TestUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1059,6 +1097,14 @@
 				kind = branch;
 			};
 		};
+		64E0AC1227B98F4A009E582D /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1071,6 +1117,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 64BBCF3D27B1BD9400AA72E6 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		64E0AC1327B98F4A009E582D /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64E0AC1227B98F4A009E582D /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

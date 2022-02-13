@@ -25,7 +25,7 @@ class NewsDetailViewModelTests: XCTestCase {
     }
 
     func testSaveAsFavorite() {
-        var newsList: [News] = loadData()
+        var newsList: [News] = TestUtils.loadNewsData()
         let expectation = XCTestExpectation(description: "complete")
 
         viewModel.saveAsFavoriteHandler = { objectId in
@@ -39,16 +39,5 @@ class NewsDetailViewModelTests: XCTestCase {
         viewModel.saveAsFavorite(newsId: 1)
         wait(for: [expectation], timeout: 1)
         XCTAssertTrue(newsList.first?.isFavorite ?? false)
-    }
-    
-    private func loadData() -> [News] {
-        if let data = TestUtils.loadData(file: "posts.json") {
-            do {
-                return try JSONDecoder().decode([News].self, from: data)
-            } catch {
-                XCTFail("Fail to parse")
-            }
-        }
-        return []
     }
 }

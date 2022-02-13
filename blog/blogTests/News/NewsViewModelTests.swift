@@ -26,7 +26,7 @@ class NewsViewModelTests: XCTestCase {
 
     func testGetPosts() {
         let expectation = XCTestExpectation(description: "complete")
-        viewModel = NewsViewProtocolMock(newsList: loadData())
+        viewModel = NewsViewProtocolMock(newsList: TestUtils.loadNewsData())
 
         viewModel.getPostsHandler = {
             XCTAssertEqual(self.viewModel.getPostsCallCount, 1)
@@ -39,7 +39,7 @@ class NewsViewModelTests: XCTestCase {
 
     func testGetFavorites() {
         let expectation = XCTestExpectation(description: "complete")
-        viewModel = NewsViewProtocolMock(newsList: loadData())
+        viewModel = NewsViewProtocolMock(newsList: TestUtils.loadNewsData())
 
         viewModel.getFavoritesHandler = {
             self.viewModel.newsList = self.viewModel.newsList.filter {
@@ -52,17 +52,4 @@ class NewsViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
         XCTAssertTrue(viewModel.newsList.count > 0)
     }
-
-    private func loadData() -> [News] {
-        if let data = TestUtils.loadData(file: "posts.json") {
-            do {
-                return try JSONDecoder().decode([News].self, from: data)
-            } catch {
-                XCTFail("Fail to parse")
-            }
-        }
-        return []
-    }
-    
-
 }
