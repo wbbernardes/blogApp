@@ -43,6 +43,7 @@ public class NewsViewModel: NewsViewProtocol {
                 .store(in: &disposables)
         } else {
             isLoading = false
+            fillNewsList()
         }
     }
 
@@ -56,15 +57,13 @@ public class NewsViewModel: NewsViewProtocol {
         return []
     }
 
-//    public func fillNews() -> [News] {
-//        if let news = realm?.objects(News.self) {
-//            newsList = news.map {
-//                return $0
-//            }
-//            return newsList
-//        }
-//        return []
-//    }
+    private func fillNewsList() {
+        if let news = realm?.objects(News.self) {
+            newsList = news.map {
+                return $0
+            }
+        }
+    }
 
     // MARK: - Private Methods
 
