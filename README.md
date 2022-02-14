@@ -1,5 +1,5 @@
 # Blog App Project Architecture
-![preview](./projectarch.jpeg)
+![preview](./projectarch.jpg)
 ## Compatibility
 This project is written in Swift 5 and requires Xcode 13.2.1.
 
