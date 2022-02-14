@@ -50,7 +50,7 @@ struct NewsView: View {
                     Loading(isLoading: $viewModel.isLoading)
                 }
             }.preferredColorScheme(envApp.colorScheme)
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 
     private var backgroundImage: some View {

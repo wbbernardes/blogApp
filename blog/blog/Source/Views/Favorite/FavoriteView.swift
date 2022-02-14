@@ -44,7 +44,7 @@ struct FavoriteView: View {
                     }
                 })
             }.preferredColorScheme(envApp.colorScheme)
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 
     private var backgroundImage: some View {
