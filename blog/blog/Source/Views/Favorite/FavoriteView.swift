@@ -12,9 +12,14 @@ struct FavoriteView: View {
     // MARK: - Properties
 
     @EnvironmentObject private var envApp: EnvApp
-    @StateObject private var viewModel = NewsViewModel()
     @State private var selectedItem: News?
-    @State var newsList: [News] = []
+    @StateObject public var viewModel: NewsViewModel
+    @State public var stubMode: Bool
+
+    public init(viewModel: NewsViewModel = NewsViewModel(), stubMode: Bool = false) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+        self.stubMode = stubMode
+    }
 
     // MARK: Views
 
@@ -27,7 +32,7 @@ struct FavoriteView: View {
                 backgroundImage
                 ScrollView(.vertical) {
                     VStack {
-                        ForEach(newsList, id: \.id) { object in
+                        ForEach(viewModel.newsList, id: \.id) { object in
                             CardView(cardObject: object)
                                 .onTapGesture {
                                     selectedItem = object
@@ -39,8 +44,8 @@ struct FavoriteView: View {
                 }
                 .onAppear(perform: {
                     envApp.colorScheme = .light
-                    if newsList.count == 0 {
-                        newsList = viewModel.getFavorites()
+                    if !stubMode {
+                        viewModel.getFavorites()
                     }
                 })
             }.preferredColorScheme(envApp.colorScheme)

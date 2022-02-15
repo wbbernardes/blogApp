@@ -15,18 +15,22 @@ public protocol NewsViewProtocol: ObservableObject {
     var newsList: [News] { get set }
 
     func getPosts()
-    func getFavorites() -> [News]
+    func getFavorites()
 }
 
 public class NewsViewModel: NewsViewProtocol {
 
     // MARK: - Properties
 
-    @Published public var newsList: [News] = []
+    @Published public var newsList: [News]
     @Published var isLoading: Bool = false
     private var disposables = Set<AnyCancellable>()
     private var service: NewsProvider = NewsService()
     private let realm = try? Realm()
+
+    public init(newsList: [News] = []) {
+        self.newsList = newsList
+    }
 
     // MARK: - Public Methods
 
@@ -47,14 +51,12 @@ public class NewsViewModel: NewsViewProtocol {
         }
     }
 
-    public func getFavorites() -> [News] {
+    public func getFavorites() {
         if let news = realm?.objects(News.self).filter("isFavorite == true") {
             newsList = news.map {
                 return $0
             }
-            return newsList
         }
-        return []
     }
 
     private func fillNewsList() {

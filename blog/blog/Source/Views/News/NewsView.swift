@@ -15,9 +15,14 @@ struct NewsView: View {
     // MARK: - Properties
 
     @EnvironmentObject private var envApp: EnvApp
-    @StateObject public var viewModel = NewsViewModel()
     @State private var selectedItem: News?
-    @State var newsList: [News] = []
+    @StateObject private var viewModel: NewsViewModel
+    @State public var stubMode: Bool
+
+    public init(viewModel: NewsViewModel = NewsViewModel(), stubMode: Bool = false) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+        self.stubMode = stubMode
+    }
 
     // MARK: Views
 
@@ -30,7 +35,7 @@ struct NewsView: View {
                 backgroundImage
                 ScrollView(.vertical) {
                     VStack {
-                        ForEach(newsList.count == 0 ? viewModel.newsList : newsList, id: \.id) { object in
+                        ForEach(viewModel.newsList, id: \.id) { object in
                             CardView(cardObject: object)
                                 .onTapGesture {
                                     selectedItem = object
@@ -42,7 +47,7 @@ struct NewsView: View {
                 }
                 .onAppear(perform: {
                     envApp.colorScheme = .light
-                    if newsList.count == 0 {
+                    if !stubMode {
                         viewModel.getPosts()
                     }
                 })

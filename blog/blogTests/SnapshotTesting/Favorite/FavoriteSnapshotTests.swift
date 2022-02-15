@@ -13,17 +13,20 @@ import SnapshotTesting
 class FavoriteSnapshotTests: XCTestCase {
 
     let newsList = TestUtils.loadNewsData()
+    var viewModel: NewsViewModel!
     var viewController: UIViewController!
 
     override func setUp() {
         super.setUp()
-        let favoriteView = FavoriteView(newsList: newsList)
+        viewModel = NewsViewModel(newsList: newsList)
+        let favoriteView = FavoriteView(viewModel: viewModel, stubMode: true)
         viewController = UIHostingController(rootView: favoriteView.environmentObject(EnvApp()))
         isRecording = false
     }
 
     override func tearDown() {
         viewController = nil
+        viewModel = nil
     }
 
     func testFavoriteViewWithJsonData() {
